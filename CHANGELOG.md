@@ -9,6 +9,8 @@ This project adheres to [PEP440](https://www.python.org/dev/peps/pep-0440/)
 and by implication, [Semantic Versioning](http://semver.org/).
 
 ## Latest
+
+## [4.1.0] - 2026-06-14
 - Retry requests, with exponentinal back-off, if an error occurs.
 
 ## [4.0.2] - 2025-08-03
