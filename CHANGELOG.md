@@ -9,6 +9,8 @@ This project adheres to [PEP440](https://www.python.org/dev/peps/pep-0440/)
 and by implication, [Semantic Versioning](http://semver.org/).
 
 ## Latest
+- Changed get_location() to handle an API change where an empty response
+  is now returned for private locations instead of HHTP 410 Gone.
 
 ## [4.1.0] - 2026-06-14
 - Retry requests, with exponentinal back-off, if an error occurs.
