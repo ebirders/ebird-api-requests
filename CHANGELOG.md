@@ -9,8 +9,12 @@ This project adheres to [PEP440](https://www.python.org/dev/peps/pep-0440/)
 and by implication, [Semantic Versioning](http://semver.org/).
 
 ## Latest
+- Changed get_historic_observations() so observations can be returned by
+  date created or date last modified.
 - Fixed is_region() which rejected subnational2 codes for single-character
   subnational1 regions, e.g. IE-L-DN.
+- Renamed clean_rank() to clean_observer_rank(). clean_rank() is deprecated
+  and will be removed in 5.0.0.
 
 ## [4.1.1] - 2026-10-10
 - Changed get_location() to handle an API change where an empty response

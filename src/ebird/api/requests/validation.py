@@ -3,12 +3,14 @@
 """Functions for validation."""
 
 import re
+import warnings
 from datetime import date, datetime
 from enum import Enum
 
 from ebird.api.requests import constants
 
 _locales = constants.LOCALES.values()
+_observation_rank = ", ".join(constants.OBSERVATION_RANK)
 _region_types = ", ".join(constants.REGION_TYPES)
 _sort_list = ", ".join(constants.SPECIES_SORT)
 _species_categories = ", ".join(constants.SPECIES_CATEGORIES)
@@ -200,6 +202,15 @@ def clean_detail(value):
     return cleaned
 
 
+def clean_observation_rank(value):
+    cleaned = clean_code(value, transform=Transform.LOWER)
+    if cleaned not in constants.OBSERVATION_RANK:
+        raise ValueError(
+            "Value for 'rank', %s, must be one of: %s" % (value, _observation_rank)
+        )
+    return cleaned
+
+
 def clean_provisional(value):
     return "true" if bool(value) else "false"
 
@@ -339,10 +350,21 @@ def clean_date(value):
     return cleaned.strftime("%Y/%m/%d")
 
 
-def clean_rank(value):
+def clean_observer_rank(value):
     cleaned = clean_code(value, transform=Transform.LOWER)
     if cleaned not in constants.TOP_100_RANK:
         raise ValueError(
             "Top 100 rank, %s, must be one or more of : %s" % (value, _top_100_rank)
         )
     return cleaned
+
+
+def clean_rank(value):
+    # Deprecated in favour of clean_observer_rank(). Remove in 5.0.0.
+    warnings.warn(
+        "clean_rank() is deprecated and will be removed in 5.0.0. "
+        "Use clean_observer_rank() instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+    return clean_observer_rank(value)

@@ -1,6 +1,7 @@
 from datetime import date
 from unittest import TestCase
 
+from ebird.api.requests.constants import DEFAULT_OBSERVATION_RANK
 from ebird.api.requests.observations import (
     HISTORIC_OBSERVATIONS_URL,
     get_historic_observations,
@@ -56,3 +57,14 @@ class GetHistoricObservationsTests(
     def test_request_for_multiple_areas_parameter(self):
         query = self.api_call(area="US-NV,US-WY,US-AZ")[1]
         self.assertEqual(query["r"], "US-NV,US-WY,US-AZ")
+
+    def test_rank_is_sent(self):
+        query = self.api_call(rank="create")[1]
+        self.assertEqual(query["rank"], "create")
+
+    def test_default_rank_is_sent(self):
+        query = self.api_call()[1]
+        self.assertEqual(query["rank"], DEFAULT_OBSERVATION_RANK)
+
+    def test_invalid_rank_raises_error(self):
+        self.api_raises(ValueError, rank="last")
