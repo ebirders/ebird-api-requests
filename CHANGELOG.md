@@ -9,6 +9,8 @@ This project adheres to [PEP440](https://www.python.org/dev/peps/pep-0440/)
 and by implication, [Semantic Versioning](http://semver.org/).
 
 ## Latest
+
+## [4.2.0] - 2026-10-11
 - Changed get_historic_observations() so observations can be returned by
   date created or date last modified.
 - Fixed is_region() which rejected subnational2 codes for single-character
