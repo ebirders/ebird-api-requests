@@ -9,6 +9,8 @@ This project adheres to [PEP440](https://www.python.org/dev/peps/pep-0440/)
 and by implication, [Semantic Versioning](http://semver.org/).
 
 ## Latest
+- Fixed is_region() which rejected subnational2 codes for single-character
+  subnational1 regions, e.g. IE-L-DN.
 
 ## [4.1.1] - 2026-10-10
 - Changed get_location() to handle an API change where an empty response

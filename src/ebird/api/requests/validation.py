@@ -38,7 +38,7 @@ def is_region(value):
     return (
         re.match(r"^[A-Z]{2}$", value)
         or re.match(r"^[A-Z]{2}-[A-Z0-9]{1,3}$", value)
-        or re.match(r"^[A-Z]{2}-[A-Z0-9]{2,3}-[A-Z0-9]{2,3}$", value)
+        or re.match(r"^[A-Z]{2}-[A-Z0-9]{1,3}-[A-Z0-9]{2,3}$", value)
     )
 
 
