@@ -9,6 +9,8 @@ This project adheres to [PEP440](https://www.python.org/dev/peps/pep-0440/)
 and by implication, [Semantic Versioning](http://semver.org/).
 
 ## Latest
+
+## [4.3.1] - 2026-10-12
 - Changed get_top_100() to accept location codes, and reject subnational2
   codes, which the eBird API does not support.
 
