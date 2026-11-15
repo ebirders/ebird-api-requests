@@ -9,6 +9,8 @@ This project adheres to [PEP440](https://www.python.org/dev/peps/pep-0440/)
 and by implication, [Semantic Versioning](http://semver.org/).
 
 ## Latest
+
+## [4.3.2] - 2026-11-15
 - Fixed the error message raised by clean_region() so it includes the
   invalid region code.
 
