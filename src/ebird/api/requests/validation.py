@@ -247,8 +247,8 @@ def clean_region(value):
         cleaned = cleaned.upper()
         if not is_region(cleaned):
             raise ValueError(
-                "Value for 'region', %s, must be a country, e.g. 'US',"
-                "subnational1, e.g. 'US-NV' or subnational2, e.g. 'US-NV-211'"
+                "Value for 'region', %s, must be a country, e.g. 'US', "
+                "subnational1, e.g. 'US-NV' or subnational2, e.g. 'US-NV-211'" % value
             )
     return cleaned
 

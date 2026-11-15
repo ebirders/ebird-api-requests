@@ -9,6 +9,8 @@ This project adheres to [PEP440](https://www.python.org/dev/peps/pep-0440/)
 and by implication, [Semantic Versioning](http://semver.org/).
 
 ## Latest
+- Fixed the error message raised by clean_region() so it includes the
+  invalid region code.
 
 ## [4.3.1] - 2026-10-12
 - Changed get_top_100() to accept location codes, and reject subnational2
